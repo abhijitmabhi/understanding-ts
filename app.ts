@@ -1,16 +1,16 @@
-function add(n1: number, n2: number, printResult: boolean, phrase: string){
-    let result = n1 + n2;
-    if(printResult){
-        console.log(phrase + result);
+type Combinable = number | string;
+type ConversionDescriptor = "as-number" | "as-string";
+
+function combine(n1: Combinable, n2: Combinable, resType: ConversionDescriptor){
+    let result;
+    if(typeof n1 === "number" && typeof n2 === "number"){
+        result = +n1 + +n2;
+    }
+    else{
+        result = n1.toString() + n2.toString();
     }
     return result;
 }
 
-const number1 = 5;
-const number2 = 2.8;
-const printResult = true;
-const phrase = "Result is: ";
-
-add(number1, number2, printResult, phrase);
-
-
+console.log(combine(100,15, "as-number"));
+console.log(combine("Hello ","World", "as-string"));

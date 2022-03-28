@@ -1,12 +1,12 @@
-function add(n1, n2, printResult, phrase) {
-    var result = n1 + n2;
-    if (printResult) {
-        console.log(phrase + result);
+function combine(n1, n2, resType) {
+    var result;
+    if (typeof n1 === "number" && typeof n2 === "number") {
+        result = +n1 + +n2;
+    }
+    else {
+        result = n1.toString() + n2.toString();
     }
     return result;
 }
-var number1 = 5;
-var number2 = 2.8;
-var printResult = true;
-var phrase = "Result is: ";
-add(number1, number2, printResult, phrase);
+console.log(combine(100, 15, "as-number"));
+console.log(combine("Hello ", "World", "as-string"));
